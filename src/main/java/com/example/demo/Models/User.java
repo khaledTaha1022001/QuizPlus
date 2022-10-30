@@ -1,18 +1,25 @@
 package com.example.demo.Models;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import javax.persistence.*;
 
 @Entity
+@Table(name="User", schema = "crudusers")
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
-    @Column
+    @Column(name = "first_name")
+    @JsonProperty("first_name")
     private String firstName;
-    @Column
+    @Column(name = "last_name")
+    @JsonProperty("last_name")
     private String lastName;
-    @Column
+    @Column(name = "age")
+    @JsonProperty("age")
     private int age;
-    @Column
+    @Column(name = "occupation")
+    @JsonProperty("occupation")
     private String occupation;
     public long getId() {
         return id;
